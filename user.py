@@ -3,7 +3,7 @@ from collections import Counter
 import os
 
 class UserManager:
-    def __init__(self, file_path="VideoGeneration/user_data.csv"):
+    def __init__(self, file_path="user_data.csv"):
         self.file_path = file_path
         if os.path.exists(file_path):
             try:
