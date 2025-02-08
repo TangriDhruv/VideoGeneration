@@ -8,7 +8,7 @@ import numpy as np
 import os
 
 class RAGProcessor:
-    def __init__(self, glove_path='VideoGeneration/glove.6B.300d.txt'):
+    def __init__(self, glove_path='glove.6B.300d.txt'):
         # Load GloVe embeddings
         self.glove = self._load_glove(glove_path)
         self.index = faiss.IndexFlatL2(300)  # GloVe uses 300-dimensional vectors
