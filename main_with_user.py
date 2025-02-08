@@ -18,7 +18,7 @@ from google.auth.transport.requests import Request
 #credentials.refresh(Request())
 #glove_path = "glove.6B.300d.txt"
 # Configuration
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "VideoGeneration/key.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
 PROJECT_ID = "pure-vehicle-448919-g7"
 REGION = "southamerica-east1"
 
