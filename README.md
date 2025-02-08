@@ -8,6 +8,22 @@ This project is a video content generation application that leverages Google Clo
 - **Custom Video Generation:** Users can describe what they want to create in their own words.
 - **Image-based Context Generation:** Users can upload images to provide context for video generation.
 
+## Requirements
+
+To run this project, you need the following dependencies:
+
+- Python 3.9 or higher
+- Streamlit
+- Gensim
+- FAISS
+- NumPy
+- Google Cloud Vision API
+- Langchain
+- MoviePy
+- Pillow
+
+### Install Dependencies
+
 ## Note
 1. The embedding uses glove library that can be downloaded from https://github.com/stanfordnlp/GloVe/tree/master/src
 
