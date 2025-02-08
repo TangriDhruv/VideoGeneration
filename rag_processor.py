@@ -6,9 +6,11 @@ from gensim.models import KeyedVectors
 import faiss
 import numpy as np
 import os
+from google.cloud import vision_v1
+from google.cloud.vision_v1 import Feature, Image, ImageAnnotatorClient
 
 class RAGProcessor:
-    def __init__(self, glove_path='glove.6B.300d.txt'):
+    def __init__(self, glove_path='VideoGeneration/glove.6B.300d.txt'):
         # Load GloVe embeddings
         self.glove = self._load_glove(glove_path)
         self.index = faiss.IndexFlatL2(300)  # GloVe uses 300-dimensional vectors
@@ -41,14 +43,22 @@ class RAGProcessor:
         return [self.image_data[i] for i in indices[0]]
 
     
+    from google.cloud import vision_v1
+
     def _describe_image(self, image_bytes):
-        client = vision.ImageAnnotatorClient()
-        image = vision.Image(content=image_bytes)
+        client = ImageAnnotatorClient()
+        image = Image(content=image_bytes)
+    
+        # Create Feature object using vision_v1 enums
+        feature = Feature(type=vision_v1.Feature.Type.LABEL_DETECTION)
+    
         response = client.annotate_image({
             'image': image,
-            'features': [vision.Feature.Type.LABEL_DETECTION],
+            'features': [feature]
         })
         return ", ".join([label.description for label in response.label_annotations])
+
+
     
     def _add_to_index(self, embedding, description):
         vector = np.array(embedding).astype('float32').reshape(1, -1)
