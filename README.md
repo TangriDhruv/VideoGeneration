@@ -7,7 +7,7 @@ This project is a video content generation application that leverages Google Clo
 - **Generate Video from Keywords:** Users can select keywords to create a video.
 - **Custom Video Generation:** Users can describe what they want to create in their own words.
 - **Image-based Context Generation:** Users can upload images to provide context for video generation.
-- 
+
 ## Note
 1. The embedding uses glove library that can be downloaded from https://github.com/stanfordnlp/GloVe/tree/master/src
 
