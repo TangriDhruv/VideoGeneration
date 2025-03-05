@@ -10,10 +10,10 @@ from google.cloud import vision_v1
 from google.cloud.vision_v1 import Feature, Image, ImageAnnotatorClient
 
 class RAGProcessor:
-    def __init__(self, glove_path='VideoGeneration/glove.6B.300d.txt'):
+    def __init__(self, glove_path='.vector_cache/glove.6B.100d.txt'):
         # Load GloVe embeddings
         self.glove = self._load_glove(glove_path)
-        self.index = faiss.IndexFlatL2(300)  # GloVe uses 300-dimensional vectors
+        self.index = faiss.IndexFlatL2(100)  # GloVe uses 100-dimensional vectors
         self.image_data = []
 
     def _load_glove(self, file_path):
