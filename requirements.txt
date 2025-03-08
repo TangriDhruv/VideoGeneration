@@ -3,3 +3,7 @@ langchain
 langchain-core 
 langchain-google-vertexai 
 streamlit
+google-cloud-vision
+faiss-cpu==1.10.0
+gensim
+torchtext
