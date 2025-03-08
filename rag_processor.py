@@ -8,12 +8,20 @@ import numpy as np
 import os
 from google.cloud import vision_v1
 from google.cloud.vision_v1 import Feature, Image, ImageAnnotatorClient
+from torchtext.vocab import GloVe
+
+#download glove embeddings
+#this will download all the glove embedding in .vector_cache location.
+#comment the below line after first run. Since we don't want to run it again and again.
+pretrained_embedding = GloVe(name='6B', dim=300)
+
+
 
 class RAGProcessor:
-    def __init__(self, glove_path='.vector_cache/glove.6B.100d.txt'):
+    def __init__(self, glove_path='.vector_cache/glove.6B.300d.txt'):
         # Load GloVe embeddings
         self.glove = self._load_glove(glove_path)
-        self.index = faiss.IndexFlatL2(100)  # GloVe uses 100-dimensional vectors
+        self.index = faiss.IndexFlatL2(300)  # GloVe uses 100-dimensional vectors
         self.image_data = []
 
     def _load_glove(self, file_path):
