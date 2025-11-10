@@ -25,4 +25,9 @@ To run this project, you need the following dependencies:
 ## Note
 1. The program uses Vertex AI and one needs to genrate the api key for Vertex AI from GCP and add key.json file in the repository.
 2. To run it in local use streamlit run main_user.py
-##
+
+## Sample Video Generated:
+
+https://github.com/user-attachments/assets/605be182-8220-4926-8930-d8e852546099
+
+
